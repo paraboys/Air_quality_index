@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+My Air Quality Monitoring App 🌍💨
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+An innovative web application designed to provide real-time and predicted air quality information, along with AI-powered health advice based on current air conditions. Stay informed about the air you breathe and take proactive steps for your well-being.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🌟 Features
+Real-time Air Quality Data: Fetches live air quality measurements for specific locations using the OpenAQ API.
+Comprehensive Pollutant Information: Displays concentrations for key pollutants like PM2.5, PM10, NO2, O3, SO2, and CO.
+Intuitive AQI Categorization: Automatically categorizes air quality (e.g., Good, Moderate, Unhealthy) with clear color indicators based on pollutant levels.
+AI-Powered Health Advice: Integrates with the OpenAI API to provide personalized health recommendations and precautions based on the detected AQI category.
+Mock Grid Data Visualization: Generates simulated air quality data across a geographical grid for broad spatial understanding.
+Responsive Frontend: (Planned/Future) A user-friendly React interface for seamless interaction on various devices.
+🛠️ Technologies Used
+Backend (Flask - Python):
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Flask: Web framework for building the API.
+Requests: For making HTTP requests to external APIs (OpenAQ).
+OpenAI: Python client for interacting with the OpenAI API (e.g., GPT-3.5 Turbo for health advice).
+python-dotenv: For secure management of API keys via .env files.
+Frontend (React - JavaScript):
 
-### `npm test`
+React: (Planned) A JavaScript library for building user interfaces.
+Mapbox GL JS / Leaflet: (Planned) For interactive map visualization of air quality data.
+Axios / Fetch API: (Planned) For consuming backend API endpoints.
+APIs & Data Sources:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+OpenAQ API (v3): Provides free, real-time air quality data from around the world.
+OpenAI API: Powers the intelligent health advice generation.
+🚀 Getting Started
+Follow these steps to set up and run the project locally.
 
-### `npm run build`
+1. Clone the Repository
+Bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone https://github.com/YOUR_GITHUB_USERNAME/my-air-quality-app.git
+cd my-air-quality-app
+(Replace YOUR_GITHUB_USERNAME with your actual GitHub username)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Backend Setup (Flask)
+The backend powers the data fetching and AI advice.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install Python Dependencies
+Navigate into the src/backend directory:
 
-### `npm run eject`
+Bash
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+cd src/backend
+pip install -r requirements.txt # (You'll need to create this file)
+Note: If you don't have a requirements.txt yet, create it by running:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Bash
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+pip freeze > requirements.txt
+(Make sure you've installed Flask, requests, openai, python-dotenv first: pip install Flask requests openai python-dotenv)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Configure API Keys
+Get your OpenAQ API Key:
 
-## Learn More
+Sign up for a free API key at OpenAQ.org.
+Get your OpenAI API Key:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Create an API key at platform.openai.com/account/api-keys.
+Create a file named .env in the src/backend directory (the same directory as app.py) and add your keys:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Code snippet
 
-### Code Splitting
+OPENAQ_API_KEY="YOUR_OPENAQ_API_KEY_HERE"
+OPENAI_API_KEY="sk-proj-YOUR_OPENAI_API_KEY_HERE"
+IMPORTANT: Do not commit your .env file to GitHub! It's already included in the .gitignore file to prevent this.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run the Backend Server
+From the src/backend directory:
 
-### Analyzing the Bundle Size
+Bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+python app.py
+The Flask development server will start, usually on http://127.0.0.1:5000. You'll see logs indicating that the API keys are loaded.
 
-### Making a Progressive Web App
+Bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+cd ../frontend
+npm install # or yarn install
+npm start # or yarn start
+The React development server will start, usually on http://localhost:3000.
 
-### Advanced Configuration
+4. Access the Application
+Once both the backend and frontend servers are running, open your web browser and navigate to:
+http://localhost:3000 (or whatever address your React app runs on).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🤝 Contributing
+Contributions are welcome! If you have suggestions for improvements, new features, or bug fixes, please open an issue or submit a pull request.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📞 Contact
+Your Name / GitHub Profile:paraboy
+Email (Optional):parassingh2278@gmail.com
+-----
