@@ -1,38 +1,195 @@
+/* Basic Reset and Body Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Map Container Styling */
+.map-container {
+  border-radius: 8px;
+  overflow: hidden; /* Ensures the map border-radius applies correctly */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 500px; /* Adjust height as needed */
+  border-radius: 8px;
+}
+
+/* Custom Marker Styling (for grid points) */
+.custom-div-icon {
+  background-color: transparent !important; /* Make sure background is transparent */
+  border: none !important; /* No default border */
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.custom-div-icon div {
+  /* Inherits color from JS */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.3); /* Small border for visibility */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Prediction Details Section */
+.prediction-details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.prediction-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.prediction-details li {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.health-advice-text {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #3498db;
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+/* Overall AQI Header Styling */
+.overall-aqi-header {
+    padding: 10px;
+    border-radius: 5px;
+    color: white; /* Text color on colored background */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+/* AQI Legend Styling */
+.aqi-legend {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.aqi-legend h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+.legend-note {
+  margin-top: 15px;
+  font-size: 0.8em;
+  color: #777;
+}
+
+.legend-note a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.legend-note a:hover {
+    text-decoration: underline;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px 15px;
+    width: 60%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #218838;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .App {
+        margin: 10px;
+        padding: 15px;
+    }
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+    .search-bar input[type="text"] {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+    .search-bar button {
+        width: 90%;
+    }
 }
